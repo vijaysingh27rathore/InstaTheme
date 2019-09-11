@@ -92,6 +92,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                 FancyToast.makeText(MainActivity.this, appUser.getUsername() +
                                                 " Signed Up successfully", FancyToast.LENGTH_LONG,
                                         FancyToast.SUCCESS, true).show();
+                                transitionToSocialMediaActivity();
                             } else {
                                 FancyToast.makeText(MainActivity.this, "Error !!!",
                                         FancyToast.LENGTH_LONG, FancyToast.ERROR, true).show();
@@ -116,5 +117,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             e.printStackTrace();
         }
 
+    }
+
+    public void transitionToSocialMediaActivity()
+    {
+        Intent intent = new Intent(MainActivity.this,SocialMediaActivity.class);
+        startActivity(intent);
     }
 }

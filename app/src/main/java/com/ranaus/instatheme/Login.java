@@ -2,6 +2,7 @@ package com.ranaus.instatheme;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -52,6 +53,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                             FancyToast.makeText(Login.this,user.getUsername()+
                                             " is logged-in successfully!!!",FancyToast.LENGTH_LONG,
                                     FancyToast.SUCCESS,true).show();
+                            transitionToSocialMediaActivity();
                         }
                     }
                 });
@@ -75,5 +77,11 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
             e.printStackTrace();
         }
 
+    }
+
+    public void transitionToSocialMediaActivity()
+    {
+        Intent intent = new Intent(Login.this,SocialMediaActivity.class);
+        startActivity(intent);
     }
 }
