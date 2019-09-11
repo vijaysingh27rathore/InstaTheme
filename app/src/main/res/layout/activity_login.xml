@@ -8,6 +8,7 @@
     tools:context=".Login"
     android:orientation="vertical"
     android:background="#e15ce8"
+    android:onClick="rootLayoutTapped"
     >
 
     <ImageView
@@ -19,7 +20,7 @@
         />
 
     <EditText
-        android:id="@+id/SignIn_username"
+        android:id="@+id/SignIn_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -27,7 +28,8 @@
         android:layout_marginLeft="30dp"
         android:textColor="#fed5cb"
         android:textSize="20sp"
-        android:hint="create new user"
+        android:hint="enter your mail"
+        android:inputType="textEmailAddress"
         />
 
     <EditText
