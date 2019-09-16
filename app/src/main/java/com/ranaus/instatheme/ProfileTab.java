@@ -52,11 +52,26 @@ public class ProfileTab extends Fragment {
 
         ProgressDialog progressDialog = new ProgressDialog(super.getContext());
 
-        edtProfileName.setText(parseUser.get("profileName")+"");
-        edtProfileBio.setText(parseUser.get("profileBio")+"");
-        edtProfileProfession.setText(parseUser.get("profileProfession")+"");
-        edtProfileHobbies.setText(parseUser.get("profileHobbies")+"");
-        edtProfileSport.setText(parseUser.get("profileSport")+"");
+        try {
+            if (parseUser.get("profileName") == null)
+            {
+                edtProfileName.setText("");
+                edtProfileBio.setText("");
+                edtProfileProfession.setText("");
+                edtProfileHobbies.setText("");
+                edtProfileSport.setText("");
+            }
+            else
+            {
+                edtProfileName.setText(parseUser.get("profileName")+"");
+                edtProfileBio.setText(parseUser.get("profileBio")+"");
+                edtProfileProfession.setText(parseUser.get("profileProfession")+"");
+                edtProfileHobbies.setText(parseUser.get("profileHobbies")+"");
+                edtProfileSport.setText(parseUser.get("profileSport")+"");
+            }
+        }
+        catch (Exception e)
+        {}
 
         btnUpdateInfo.setOnClickListener(new View.OnClickListener() {
 
