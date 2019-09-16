@@ -2,6 +2,7 @@ package com.ranaus.instatheme;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -35,7 +36,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
 
         if (ParseUser.getCurrentUser() != null)
         {
-            ParseUser.logOut();
+            ParseUser.getCurrentUser().logOut();
         }
     }
 
@@ -45,18 +46,30 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         {
             case R.id.btn_LoginIn:
 
-                ParseUser.logInInBackground(edtLoginEmail.getText().toString(), edtLoginPasswd.getText().toString(), new LogInCallback() {
-                    @Override
-                    public void done(ParseUser user, ParseException e) {
-                        if (user != null && e == null)
-                        {
-                            FancyToast.makeText(Login.this,user.getUsername()+
-                                            " is logged-in successfully!!!",FancyToast.LENGTH_LONG,
-                                    FancyToast.SUCCESS,true).show();
-                            transitionToSocialMediaActivity();
+                if (edtLoginEmail.getText().toString().equals("") || edtLoginPasswd.getText().toString().equals(""))
+                {
+                    FancyToast.makeText(Login.this,
+                                    "Email or Password is missing!!!",FancyToast.LENGTH_LONG,
+                            FancyToast.ERROR,true).show();
+                }
+                else {
+
+                    ProgressDialog progressDialog = new ProgressDialog(this);
+                    progressDialog.setMessage(edtLoginEmail.getText().toString() + " Login User!!!");
+                    progressDialog.show();
+                    ParseUser.logInInBackground(edtLoginEmail.getText().toString(), edtLoginPasswd.getText().toString(), new LogInCallback() {
+                        @Override
+                        public void done(ParseUser user, ParseException e) {
+                            if (user != null && e == null) {
+                                FancyToast.makeText(Login.this, user.getUsername() +
+                                                " is logged-in successfully!!!", FancyToast.LENGTH_LONG,
+                                        FancyToast.SUCCESS, true).show();
+                                transitionToSocialMediaActivity();
+                            }
+                            progressDialog.dismiss();
                         }
-                    }
-                });
+                    });
+                }
 
                 break;
 

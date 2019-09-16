@@ -4,12 +4,59 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ProfileTab">
+    tools:context=".ProfileTab"
+    android:orientation="vertical"
+    >
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <EditText
+        android:id="@+id/profile_name"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:hint="Enter profile name"
+        android:layout_marginTop="10dp"
+        />
+
+    <EditText
+        android:id="@+id/profile_bio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter profile bio"
+        android:layout_marginTop="10dp"
+        />
+
+    <EditText
+        android:id="@+id/profile_profession"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter profession"
+        android:layout_marginTop="10dp"
+        />
+
+    <EditText
+        android:id="@+id/profile_hobbies"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter hobbies"
+        android:layout_marginTop="10dp"
+        />
+
+    <EditText
+        android:id="@+id/profile_sport"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter sport"
+        android:layout_marginTop="10dp"
+        />
+
+    <Button
+        android:id="@+id/btn_update_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Update info"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:onClick="onClick"/>
+
+
 
 </LinearLayout>

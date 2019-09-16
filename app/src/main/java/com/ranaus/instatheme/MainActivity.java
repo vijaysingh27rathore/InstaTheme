@@ -39,7 +39,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnMainSignUp.setOnClickListener(this);
         if (ParseUser.getCurrentUser() != null)
         {
-            ParseUser.logOut();
+           // ParseUser.getCurrentUser().logOut();
+            transitionToSocialMediaActivity();
         }
 
         edtMainPasswd.setOnKeyListener(new View.OnKeyListener() {
