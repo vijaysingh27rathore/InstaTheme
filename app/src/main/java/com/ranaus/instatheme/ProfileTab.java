@@ -3,16 +3,14 @@ package com.ranaus.instatheme;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ProgressBar;
 import android.widget.Toast;
+
+import androidx.fragment.app.Fragment;
 
 import com.parse.ParseException;
 import com.parse.ParseUser;
@@ -50,7 +48,7 @@ public class ProfileTab extends Fragment {
 
         ParseUser parseUser = ParseUser.getCurrentUser();
 
-        ProgressDialog progressDialog = new ProgressDialog(super.getContext());
+
 
         try {
             if (parseUser.get("profileName") == null)
@@ -77,14 +75,16 @@ public class ProfileTab extends Fragment {
 
             @Override
             public void onClick(View view) {
+               final ProgressDialog progressDialog = new ProgressDialog(getContext());
+                progressDialog.setMessage("wait...");
+                progressDialog.show();
                 parseUser.put("profileName",edtProfileName.getText().toString());
                 parseUser.put("profileBio",edtProfileBio.getText().toString());
                 parseUser.put("profileProfession",edtProfileProfession.getText().toString());
                 parseUser.put("profileHobbies",edtProfileHobbies.getText().toString());
                 parseUser.put("profileSport",edtProfileSport.getText().toString());
 
-                progressDialog.setMessage("wait...");
-                progressDialog.show();
+
                 parseUser.saveInBackground(new SaveCallback() {
                     @Override
                     public void done(ParseException e) {

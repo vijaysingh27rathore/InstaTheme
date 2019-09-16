@@ -4,12 +4,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UsersTab">
+    tools:context=".UsersTab"
+    android:orientation="vertical"
+    android:gravity="center"
+    >
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ListView
+        android:id="@+id/list_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+
+        />
+
+    <TextView
+        android:id="@+id/loading_users"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="WAIT USERS INFO IS LOADING...."
+        android:textSize="50sp"
+        android:layout_gravity="center"
+        android:textColor="#b4644b"
+        />
 
 </LinearLayout>
