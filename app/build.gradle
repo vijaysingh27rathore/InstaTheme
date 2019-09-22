@@ -40,12 +40,12 @@ dependencies {
     implementation "com.android.support:support-core-utils:29.0.0"
     implementation "com.android.support:support-core-ui:29.0.0"
     implementation "com.android.support:support-media-compat:29.0.0"
-    implementation  "com.android.support:support-fragment:29.0.0"
-    implementation  "com.android.support:multidex:1.0.3"
+    implementation "com.android.support:support-fragment:29.0.0"
+    implementation "com.android.support:multidex:1.0.3"
     implementation "com.android.support:appcompat-v7:29.0.0"
-    implementation  "com.android.support:cardview-v7:29.0.0"
+    implementation "com.android.support:cardview-v7:29.0.0"
     implementation "com.android.support:gridlayout-v7:29.0.0"
-    implementation  "com.android.support:preference-v7:29.0.0"
+    implementation "com.android.support:preference-v7:29.0.0"
     implementation 'com.google.android.material:material:1.0.0'
 
 }
